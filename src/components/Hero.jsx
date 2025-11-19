@@ -120,8 +120,8 @@ const Hero = () => {
                   et accéder à votre cloud personnel depuis n'importe où.
                 </p>
 
-                {/* Capture de l'interface Ryvie Desktop */}
-                <div className="mb-8 rounded-2xl overflow-hidden border border-gray-100 shadow-md bg-gray-50">
+                {/* Capture de l'interface Ryvie Desktop avec skeleton */}
+                <div className="mb-8 rounded-2xl overflow-hidden border border-gray-100 shadow-md bg-gray-50 animate-pulse">
                   <img
                     src="/images/capturePC.png"
                     alt="Interface Ryvie Desktop"
