@@ -24,15 +24,15 @@ const Footer = () => {
       { name: 'Politique de confidentialité', href: '#' },
     ],
     community: [
-      { name: 'GitHub', href: 'https://github.com/ryvie', external: true },
+      { name: 'GitHub', href: 'https://github.com/ryvieos', external: true },
       { name: 'Open Source', href: '#opensource' },
       { name: 'Communauté', href: '#' },
-      { name: 'Contribuer', href: '#' },
+      { name: 'Contribuer', href: 'https://github.com/ryvieos' },
     ],
   };
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/ryvie', label: 'GitHub' },
+    { icon: Github, href: 'https://github.com/ryvieos', label: 'GitHub' },
     { icon: Twitter, href: 'https://twitter.com/ryvie', label: 'Twitter' },
     { icon: Linkedin, href: 'https://linkedin.com/company/ryvie', label: 'LinkedIn' },
     { icon: Mail, href: 'mailto:contact@ryvie.fr', label: 'Email' },

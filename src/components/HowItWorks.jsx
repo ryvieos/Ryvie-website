@@ -6,7 +6,7 @@ const HowItWorks = () => {
     {
       icon: Plug,
       title: "Branchez votre Ryvie",
-      description: "Branchez simplement votre Ryvie ou votre ordinateur reconditionné à votre box Internet."
+      description: "Branchez simplement votre Ryvie à votre box Internet."
     },
     {
       icon: Download,
@@ -37,7 +37,20 @@ const HowItWorks = () => {
 
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8">
-            {steps.map((step, index) => (
+            {steps.map((step, index) => {
+              const numberBg = [
+                "bg-blue-100 text-blue-600",
+                "bg-emerald-100 text-emerald-600",
+                "bg-purple-100 text-purple-600"
+              ][index];
+
+              const iconBg = [
+                "from-blue-500 to-sky-500",
+                "from-emerald-500 to-teal-500",
+                "from-purple-500 to-indigo-500"
+              ][index];
+
+              return (
               <div key={index} className="relative">
                 {/* Connector line */}
                 {index < steps.length - 1 && (
@@ -46,12 +59,12 @@ const HowItWorks = () => {
                 
                 <div className="text-center group">
                   {/* Step number */}
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-ryvie-blue/10 rounded-full mb-4 text-ryvie-blue font-bold text-xl">
+                  <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full mb-4 font-bold text-xl shadow-sm ${numberBg}`}>
                     {index + 1}
                   </div>
                   
                   {/* Icon */}
-                  <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-ryvie-blue to-blue-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <div className={`inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br ${iconBg} rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                     <step.icon className="w-10 h-10 text-white" />
                   </div>
                   
@@ -60,7 +73,8 @@ const HowItWorks = () => {
                   <p className="text-ryvie-gray leading-relaxed">{step.description}</p>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Additional info */}

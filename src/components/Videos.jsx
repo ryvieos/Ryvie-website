@@ -6,17 +6,14 @@ const Videos = () => {
     {
       title: "Vidéo de démarrage",
       description: "Découvrez comment démarrer avec Ryvie en quelques minutes. Installation, configuration et première utilisation.",
-      placeholder: "ouverture-app"
+      placeholder: "ouverture-app",
+      hasVideo: true
     },
     {
       title: "Démonstration de l'App Store",
       description: "Explorez l'App Store Ryvie et apprenez à installer vos applications préférées en un clic.",
-      placeholder: "appstore"
-    },
-    {
-      title: "Cybersécurité avec rAI",
-      description: "Comprenez comment rAI protège vos données sensibles lors de l'utilisation des services d'intelligence artificielle.",
-      placeholder: "appstore"
+      placeholder: "appstore",
+      hasVideo: true
     }
   ];
 
@@ -35,29 +32,35 @@ const Videos = () => {
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-10 justify-items-center">
             {videos.map((video, index) => (
               <div 
                 key={index}
-                className="bg-gradient-to-br from-gray-50 to-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                className="w-full max-w-md bg-gradient-to-br from-gray-50 to-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
               >
                 {/* Video Placeholder */}
                 <div className="relative aspect-video bg-gradient-to-br from-ryvie-blue/20 to-blue-600/20 flex items-center justify-center group cursor-pointer">
-                  {/* Placeholder for actual video */}
-                  <video 
-                    className="absolute inset-0 w-full h-full object-cover hidden"
-                    poster={`/videos/${video.placeholder}-poster.jpg`}
-                    controls
-                    loop
-                    onLoadedData={(e) => {
-                      e.target.classList.remove('hidden');
-                      e.target.nextSibling.classList.add('hidden');
-                    }}
-                  >
-                    <source src={`/videos/${video.placeholder}.mp4`} type="video/mp4" />
-                  </video>
-                  
+                  {/* Video réelle (si disponible) */}
+                  {video.hasVideo && video.placeholder && (
+                    <video 
+                      className="absolute inset-0 w-full h-full object-cover hidden"
+                      poster={`/videos/${video.placeholder}-poster.jpg`}
+                      controls
+                      loop
+                      autoPlay
+                      muted
+                      playsInline
+                      onLoadedData={(e) => {
+                        e.target.playbackRate = 1.3;
+                        e.target.classList.remove('hidden');
+                        e.target.nextSibling.classList.add('hidden');
+                      }}
+                    >
+                      <source src={`/videos/${video.placeholder}.mp4`} type="video/mp4" />
+                    </video>
+                  )}
+
                   {/* Placeholder UI */}
                   <div className="text-center">
                     <div className="inline-flex items-center justify-center w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full shadow-xl mb-4 group-hover:scale-110 transition-transform">

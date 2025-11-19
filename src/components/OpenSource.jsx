@@ -88,7 +88,7 @@ const OpenSource = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://github.com/ryvie"
+                href="https://github.com/ryvieos"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center space-x-2 px-8 py-4 bg-white text-gray-900 rounded-full font-semibold hover:shadow-xl transition-all duration-200 hover:scale-105"
@@ -98,7 +98,7 @@ const OpenSource = () => {
                 <ExternalLink className="w-4 h-4" />
               </a>
               <a
-                href="https://github.com/ryvie/ryvie/discussions"
+                href="https://github.com/ryvieos/ryvieos/discussions"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center space-x-2 px-8 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-all duration-200"

@@ -133,7 +133,7 @@ Les warnings concernant `@tailwind` et `@apply` dans l'IDE sont normaux. Ce sont
 Le site utilise des placeholders SVG pour les images manquantes. Ils seront automatiquement remplacés quand vous ajouterez les vraies images aux bons emplacements.
 
 ### Liens à personnaliser
-- URL GitHub : Actuellement `https://github.com/ryvie` (à modifier)
+- URL GitHub : Actuellement `https://github.com/ryvieos` (à modifier si besoin)
 - Réseaux sociaux dans le Footer (à personnaliser)
 - Email de contact : `contact@ryvie.fr` (à vérifier)
 
