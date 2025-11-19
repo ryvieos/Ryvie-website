@@ -53,8 +53,8 @@ const Applications = () => {
               className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group"
             >
               <div className="flex items-start space-x-6">
-                {/* App Icon Placeholder */}
-                <div className="flex-shrink-0 w-20 h-20 rounded-2xl shadow-lg overflow-hidden bg-gray-100 animate-pulse">
+                {/* App Icon */}
+                <div className="flex-shrink-0 w-20 h-20 rounded-2xl shadow-lg overflow-hidden bg-gray-100">
                   <img 
                     src={`/images/apps/${app.logo}`}
                     alt={`${app.name} logo`}

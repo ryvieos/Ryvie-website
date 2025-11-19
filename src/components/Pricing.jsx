@@ -90,9 +90,9 @@ const Pricing = () => {
                   </div>
                 )}
 
-                {/* Image de la gamme avec skeleton */}
+                {/* Image de la gamme */}
                 {plan.image && (
-                  <div className="relative h-64 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6 animate-pulse">
+                  <div className="relative h-64 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6">
                     <img 
                       src={plan.image}
                       alt={plan.name}
