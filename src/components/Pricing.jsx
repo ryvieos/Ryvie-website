@@ -144,9 +144,12 @@ const Pricing = () => {
               <p className="text-ryvie-gray mb-6">
                 Notre équipe est là pour vous conseiller et trouver la solution Ryvie parfaite pour vos besoins.
               </p>
-              <button className="px-8 py-3 bg-gradient-to-r from-ryvie-blue to-blue-600 text-white rounded-full font-semibold hover:shadow-xl transition-all duration-200 hover:scale-105">
+              <a
+                href="mailto:contact@ryvie.fr"
+                className="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-ryvie-blue to-blue-600 text-white rounded-full font-semibold hover:shadow-xl transition-all duration-200 hover:scale-105"
+              >
                 Nous contacter
-              </button>
+              </a>
             </div>
           </div>
         </div>

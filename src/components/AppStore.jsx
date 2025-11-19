@@ -82,9 +82,12 @@ const AppStore = () => {
               <p className="mb-6 leading-relaxed opacity-95">
                 L'équipe Ryvie développe des applications sur mesure adaptées à vos besoins spécifiques.
               </p>
-              <button className="px-6 py-3 bg-white text-ryvie-blue rounded-full font-semibold hover:shadow-xl transition-all duration-200 hover:scale-105">
+              <a
+                href="mailto:contact@ryvie.fr"
+                className="inline-flex items-center justify-center px-6 py-3 bg-white text-ryvie-blue rounded-full font-semibold hover:shadow-xl transition-all duration-200 hover:scale-105"
+              >
                 Nous contacter
-              </button>
+              </a>
             </div>
           </div>
 

@@ -13,8 +13,7 @@ const Header = ({ scrolled }) => {
     { name: 'Pour qui ?', href: '#usecases' },
     { name: 'Open Source', href: '#opensource' },
     { name: 'Pourquoi Ryvie ?', href: '#why' },
-    { name: 'FAQ', href: '#faq' },
-    { name: 'Contact', href: '#footer' },
+    { name: 'FAQ & Contact', href: '#faq' },
   ];
 
   return (

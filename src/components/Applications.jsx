@@ -58,7 +58,7 @@ const Applications = () => {
                   <img 
                     src={`/images/apps/${app.logo}`}
                     alt={`${app.name} logo`}
-                    className="w-full h-full object-cover"
+                    className={`w-full h-full object-cover ${app.name === 'rDrive' ? 'scale-110' : ''}`}
                   />
                 </div>
 
