@@ -32,19 +32,19 @@ const Videos = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-10 justify-items-center">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-10 justify-items-center">
             {videos.map((video, index) => (
               <div 
                 key={index}
-                className="w-full max-w-md bg-gradient-to-br from-gray-50 to-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                className="w-full max-w-xl bg-gradient-to-br from-gray-50 to-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
               >
                 {/* Video Placeholder */}
-                <div className="relative aspect-video bg-gradient-to-br from-ryvie-blue/20 to-blue-600/20 flex items-center justify-center group cursor-pointer">
+                <div className="relative aspect-video bg-gradient-to-br from-ryvie-blue/20 to-blue-600/20 flex items-center justify-center group cursor-pointer overflow-hidden">
                   {/* Video réelle (si disponible) */}
                   {video.hasVideo && video.placeholder && (
                     <video 
-                      className="absolute inset-0 w-full h-full object-cover hidden"
+                      className="absolute inset-0 w-full h-full object-contain hidden"
                       poster={`/videos/${video.placeholder}-poster.jpg`}
                       controls
                       loop
