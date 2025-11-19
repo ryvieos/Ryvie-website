@@ -7,25 +7,29 @@ const Applications = () => {
       name: "rPictures",
       icon: Image,
       description: "Stocker, organiser et partager les photos en toute simplicité, pour toute la famille.",
-      color: "from-purple-500 to-pink-500"
+      color: "from-purple-500 to-pink-500",
+      logo: "rPictures.png"
     },
     {
       name: "rTransfer",
       icon: Send,
       description: "Transférer facilement de gros fichiers, sans aucune limite de taille (ou presque).",
-      color: "from-blue-500 to-cyan-500"
+      color: "from-blue-500 to-cyan-500",
+      logo: "rTransfer.png"
     },
     {
       name: "rDrop",
       icon: Smartphone,
       description: "Transférer des fichiers, photos et vidéos entre ses appareils, aussi simplement qu'avec AirDrop.",
-      color: "from-green-500 to-emerald-500"
+      color: "from-green-500 to-emerald-500",
+      logo: "rDrop.png"
     },
     {
       name: "rDrive",
       icon: HardDrive,
       description: "Récupérer et synchroniser tous ses fichiers stockés chez Google, Microsoft ou Apple directement chez soi.",
-      color: "from-orange-500 to-red-500"
+      color: "from-orange-500 to-red-500",
+      logo: "rDrive.png"
     }
   ];
 
@@ -51,18 +55,10 @@ const Applications = () => {
               <div className="flex items-start space-x-6">
                 {/* App Icon Placeholder */}
                 <div className="flex-shrink-0">
-                  <div className={`w-20 h-20 bg-gradient-to-br ${app.color} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                    <app.icon className="w-10 h-10 text-white" />
-                  </div>
-                  {/* Placeholder for actual logo */}
                   <img 
-                    src={`/images/apps/${app.name.toLowerCase()}-logo.png`}
+                    src={`/images/apps/${app.logo}`}
                     alt={`${app.name} logo`}
-                    className="w-20 h-20 rounded-2xl shadow-lg hidden"
-                    onLoad={(e) => {
-                      e.target.classList.remove('hidden');
-                      e.target.previousSibling.classList.add('hidden');
-                    }}
+                    className="w-20 h-20 rounded-2xl shadow-lg object-contain"
                   />
                 </div>
 

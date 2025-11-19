@@ -6,17 +6,17 @@ const Videos = () => {
     {
       title: "Vidéo de démarrage",
       description: "Découvrez comment démarrer avec Ryvie en quelques minutes. Installation, configuration et première utilisation.",
-      placeholder: "video-demarrage"
+      placeholder: "ouverture-app"
     },
     {
       title: "Démonstration de l'App Store",
       description: "Explorez l'App Store Ryvie et apprenez à installer vos applications préférées en un clic.",
-      placeholder: "video-appstore"
+      placeholder: "appstore"
     },
     {
       title: "Cybersécurité avec rAI",
       description: "Comprenez comment rAI protège vos données sensibles lors de l'utilisation des services d'intelligence artificielle.",
-      placeholder: "video-rai"
+      placeholder: "appstore"
     }
   ];
 
@@ -49,6 +49,7 @@ const Videos = () => {
                     className="absolute inset-0 w-full h-full object-cover hidden"
                     poster={`/videos/${video.placeholder}-poster.jpg`}
                     controls
+                    loop
                     onLoadedData={(e) => {
                       e.target.classList.remove('hidden');
                       e.target.nextSibling.classList.add('hidden');

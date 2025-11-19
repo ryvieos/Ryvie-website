@@ -88,12 +88,17 @@ const Hero = () => {
                   className="absolute inset-0 w-full h-full object-cover hidden"
                   poster="/images/interface-mockup.png"
                   controls
+                  loop
+                  autoPlay
+                  muted
+                  playsInline
                   onLoadedData={(e) => {
+                    e.target.playbackRate = 1.3;
                     e.target.classList.remove('hidden');
                     e.target.nextSibling.classList.add('hidden');
                   }}
                 >
-                  <source src="/videos/demo-logiciel.mp4" type="video/mp4" />
+                  <source src="/videos/ouverture-app.mp4" type="video/mp4" />
                 </video>
                 
                 {/* Placeholder UI */}
