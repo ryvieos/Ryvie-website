@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Github, Twitter, Linkedin, Mail, ExternalLink, Heart } from 'lucide-react';
 
 const Footer = () => {
@@ -6,28 +7,24 @@ const Footer = () => {
 
   const footerLinks = {
     product: [
-      { name: 'Produit', href: '#hero' },
-      { name: 'Applications', href: '#applications' },
-      { name: 'App Store', href: '#appstore' },
-      { name: 'Offres', href: '#pricing' },
+      { name: 'Accueil', href: '/', type: 'page' },
+      { name: 'Applications', href: '/#applications', type: 'anchor' },
+      { name: 'Offres', href: '/offres', type: 'page' },
     ],
     resources: [
-      { name: 'Démos vidéo', href: '#videos' },
-      { name: 'FAQ', href: '#faq' },
-      { name: 'Documentation', href: '#' },
-      { name: 'Blog', href: '#' },
+      { name: 'Démos vidéo', href: '/#videos', type: 'anchor' },
+      { name: 'FAQ & Contact', href: '/#faq', type: 'anchor' },
+      { name: 'Documentation', href: '#', type: 'anchor' },
     ],
     company: [
-      { name: 'À propos', href: '#' },
-      { name: 'FAQ & Contact', href: '#faq' },
-      { name: 'Mentions légales', href: '#' },
-      { name: 'Politique de confidentialité', href: '#' },
+      { name: 'À propos', href: '#', type: 'anchor' },
+      { name: 'Mentions légales', href: '#', type: 'anchor' },
+      { name: 'Politique de confidentialité', href: '#', type: 'anchor' },
     ],
     community: [
       { name: 'GitHub', href: 'https://github.com/ryvieos', external: true },
-      { name: 'Open Source', href: '#opensource' },
-      { name: 'Communauté', href: '#' },
-      { name: 'Contribuer', href: 'https://github.com/ryvieos' },
+      { name: 'Open Source', href: '/opensource', type: 'page' },
+      { name: 'Contribuer', href: 'https://github.com/ryvieos', external: true },
     ],
   };
 
@@ -85,12 +82,21 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.product.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-ryvie-blue transition-colors duration-200"
-                  >
-                    {link.name}
-                  </a>
+                  {link.type === 'page' ? (
+                    <Link
+                      to={link.href}
+                      className="text-gray-400 hover:text-ryvie-blue transition-colors duration-200"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-gray-400 hover:text-ryvie-blue transition-colors duration-200"
+                    >
+                      {link.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -102,12 +108,21 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.resources.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-ryvie-blue transition-colors duration-200"
-                  >
-                    {link.name}
-                  </a>
+                  {link.type === 'page' ? (
+                    <Link
+                      to={link.href}
+                      className="text-gray-400 hover:text-ryvie-blue transition-colors duration-200"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-gray-400 hover:text-ryvie-blue transition-colors duration-200"
+                    >
+                      {link.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -119,12 +134,21 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-ryvie-blue transition-colors duration-200"
-                  >
-                    {link.name}
-                  </a>
+                  {link.type === 'page' ? (
+                    <Link
+                      to={link.href}
+                      className="text-gray-400 hover:text-ryvie-blue transition-colors duration-200"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-gray-400 hover:text-ryvie-blue transition-colors duration-200"
+                    >
+                      {link.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -136,15 +160,24 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.community.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
-                    target={link.external ? "_blank" : undefined}
-                    rel={link.external ? "noopener noreferrer" : undefined}
-                    className="text-gray-400 hover:text-ryvie-blue transition-colors duration-200 flex items-center space-x-1"
-                  >
-                    <span>{link.name}</span>
-                    {link.external && <ExternalLink className="w-3 h-3" />}
-                  </a>
+                  {link.type === 'page' ? (
+                    <Link
+                      to={link.href}
+                      className="text-gray-400 hover:text-ryvie-blue transition-colors duration-200"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      target={link.external ? "_blank" : undefined}
+                      rel={link.external ? "noopener noreferrer" : undefined}
+                      className="text-gray-400 hover:text-ryvie-blue transition-colors duration-200 flex items-center space-x-1"
+                    >
+                      <span>{link.name}</span>
+                      {link.external && <ExternalLink className="w-3 h-3" />}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

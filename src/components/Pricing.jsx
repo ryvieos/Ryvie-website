@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Recycle, Zap, Code, Check } from 'lucide-react';
 
 const Pricing = () => {
+  const [showPreorderInfo, setShowPreorderInfo] = useState(false);
+
   const plans = [
     {
       icon: Recycle,
@@ -9,6 +11,7 @@ const Pricing = () => {
       tagline: "Écologique & Économique",
       price: "~300€",
       description: "Cloud personnel créé à partir d'ordinateurs dits « obsolètes »",
+      image: "/images/ryvie-ecocloud.png",
       features: [
         "Ordinateur reconditionné",
         "Réduit les déchets électroniques",
@@ -18,7 +21,7 @@ const Pricing = () => {
         "Toutes les applications Ryvie"
       ],
       color: "from-green-500 to-emerald-600",
-      popular: false
+      popular: true
     },
     {
       icon: Zap,
@@ -26,6 +29,7 @@ const Pricing = () => {
       tagline: "Performance & Puissance",
       price: "~600€",
       description: "Hardware neuf avec plus de puissance et possibilité d'intégrer de l'IA",
+      image: "/images/ryvie-procloud.png",
       features: [
         "Matériel neuf haute performance",
         "Support IA intégré",
@@ -36,7 +40,7 @@ const Pricing = () => {
         "Capacités d'extension"
       ],
       color: "from-ryvie-blue to-blue-600",
-      popular: true
+      popular: false
     },
     {
       icon: Code,
@@ -44,6 +48,7 @@ const Pricing = () => {
       tagline: "Pour les experts",
       price: "Gratuit",
       description: "Logiciel Ryvie installable sur n'importe quel serveur",
+      image: "/images/capturePC.png",
       features: [
         "Cœur du logiciel gratuit",
         "Installation sur votre matériel",
@@ -81,6 +86,17 @@ const Pricing = () => {
                 {plan.popular && (
                   <div className="absolute top-0 right-0 bg-gradient-to-r from-ryvie-blue to-blue-600 text-white px-6 py-2 rounded-bl-2xl font-semibold text-sm">
                     Populaire
+                  </div>
+                )}
+
+                {/* Image de la gamme */}
+                {plan.image && (
+                  <div className="relative h-64 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6">
+                    <img 
+                      src={plan.image}
+                      alt={plan.name}
+                      className="w-full h-full object-contain drop-shadow-2xl"
+                    />
                   </div>
                 )}
 
@@ -127,8 +143,13 @@ const Pricing = () => {
                         ? 'bg-gradient-to-r from-ryvie-blue to-blue-600 text-white hover:shadow-xl hover:scale-105'
                         : 'border-2 border-ryvie-blue text-ryvie-blue hover:bg-ryvie-blue hover:text-white'
                     }`}
+                    onClick={() => {
+                      if (plan.price !== 'Gratuit') {
+                        setShowPreorderInfo(true);
+                      }
+                    }}
                   >
-                    {plan.price === "Gratuit" ? "Télécharger" : "Commander"}
+                    {plan.price === "Gratuit" ? "Télécharger" : "Pré-commander"}
                   </button>
                 </div>
               </div>
@@ -154,6 +175,36 @@ const Pricing = () => {
           </div>
         </div>
       </div>
+
+      {/* Preorder info overlay */}
+      {showPreorderInfo && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+          <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 p-8 relative">
+            <h3 className="text-2xl font-bold text-ryvie-dark mb-3">Pré-commande bientôt disponible</h3>
+            <p className="text-ryvie-gray mb-4">
+              Les gammes matérielles Ryvie ne sont pas encore disponibles à la vente.
+            </p>
+            <p className="text-ryvie-gray mb-6">
+              Elles arrivent très bientôt. En attendant, vous pouvez nous contacter pour en savoir plus
+              ou suivre le projet open source.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 sm:justify-end">
+              <a
+                href="mailto:contact@ryvie.fr"
+                className="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-ryvie-blue text-ryvie-blue hover:bg-ryvie-blue hover:text-white transition-all text-sm font-semibold"
+              >
+                Nous contacter
+              </a>
+              <button
+                onClick={() => setShowPreorderInfo(false)}
+                className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-gray-900 text-white hover:bg-black transition-all text-sm font-semibold"
+              >
+                Compris
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

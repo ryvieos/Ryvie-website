@@ -71,7 +71,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-xl text-ryvie-gray leading-relaxed max-w-3xl mx-auto mb-12">
-            Ryvie est un cloud personnel à la maison qui permet de stocker photos, vidéos, documents et d'installer des applications. 
+            Ryvie est votre cloud personnel qui permet de stocker photos, vidéos, documents et d'installer des applications. 
             <span className="font-semibold text-ryvie-dark"> Les données restent chez vous,</span> accédez-y partout dans le monde.
           </p>
         </div>
@@ -85,8 +85,8 @@ const Hero = () => {
               {/* Placeholder vidéo */}
               <div className="relative aspect-video bg-gradient-to-br from-ryvie-blue/20 to-blue-600/20 flex items-center justify-center">
                 <video 
-                  className="absolute inset-0 w-full h-full object-cover hidden"
-                  poster="/images/interface-mockup.png"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  poster="/images/capturePC.png"
                   controls
                   loop
                   autoPlay
@@ -118,6 +118,16 @@ const Hero = () => {
                   Interface intuitive et moderne pour gérer toutes vos données, installer des applications en un clic, 
                   et accéder à votre cloud personnel depuis n'importe où.
                 </p>
+
+                {/* Capture de l'interface Ryvie Desktop */}
+                <div className="mb-8 rounded-2xl overflow-hidden border border-gray-100 shadow-md bg-gray-50">
+                  <img
+                    src="/images/capturePC.png"
+                    alt="Interface Ryvie Desktop"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
                 <div className="grid sm:grid-cols-2 gap-3">
                   {benefits.map((benefit, index) => (
                     <div key={index} className="flex items-start gap-2">

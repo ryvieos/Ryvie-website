@@ -1,20 +1,43 @@
-import React, { useState } from 'react';
-import { Menu, X, ExternalLink } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, ExternalLink, Download } from 'lucide-react';
 
 const Header = ({ scrolled }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [downloadUrl, setDownloadUrl] = useState('/logiciel/Ryvie Setup 0.0.2.exe');
+  const [osName, setOsName] = useState('Windows');
 
+  const location = useLocation();
+
+  useEffect(() => {
+    // Détecter le système d'exploitation
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    
+    if (userAgent.indexOf('mac') !== -1) {
+      setOsName('macOS');
+      setDownloadUrl('/logiciel/Ryvie-macOS.dmg'); // à ajouter plus tard
+    } else if (userAgent.indexOf('linux') !== -1) {
+      setOsName('Linux');
+      setDownloadUrl('/logiciel/Ryvie-Linux.AppImage'); // à ajouter plus tard
+    } else {
+      setOsName('Windows');
+      setDownloadUrl('/logiciel/Ryvie Setup 0.0.2.exe');
+    }
+  }, []);
+  
   const navLinks = [
-    { name: 'Produit', href: '#hero' },
+    { name: 'Accueil', href: '/', type: 'page' },
+    { name: 'Offres', href: '/offres', type: 'page' },
+    { name: 'Open Source', href: '/opensource', type: 'page' },
+  ];
+  
+  const homeAnchors = [
     { name: 'Applications', href: '#applications' },
-    { name: 'App Store', href: '#appstore' },
-    { name: 'Offres', href: '#pricing' },
     { name: 'Démos vidéo', href: '#videos' },
-    { name: 'Pour qui ?', href: '#usecases' },
-    { name: 'Open Source', href: '#opensource' },
-    { name: 'Pourquoi Ryvie ?', href: '#why' },
     { name: 'FAQ & Contact', href: '#faq' },
   ];
+  
+  const displayLinks = location.pathname === '/' ? [...navLinks, ...homeAnchors] : navLinks;
 
   return (
     <header
@@ -26,7 +49,7 @@ const Header = ({ scrolled }) => {
         {/* Hauteur fixe pour stabiliser la barre */}
         <div className="flex items-center gap-20 h-20">
           {/* Logo à gauche */}
-          <a href="#hero" className="flex items-center gap-3 group flex-shrink-0">
+          <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
             <img
               src="/images/logo.png"
               alt="Ryvie Logo"
@@ -42,40 +65,61 @@ const Header = ({ scrolled }) => {
             <span className="text-3xl font-semibold bg-gradient-to-r from-ryvie-blue to-blue-600 bg-clip-text text-transparent leading-tight tracking-tight">
               Ryvie
             </span>
-          </a>
+          </Link>
 
           {/* Navigation centrale moderne */}
-          <div className="hidden lg:flex items-center gap-4 flex-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="relative text-sm text-ryvie-gray hover:text-ryvie-blue transition-colors duration-200 font-medium whitespace-nowrap"
-              >
-                {link.name}
-                <span className="pointer-events-none absolute left-1/2 -bottom-1 h-0.5 w-0 -translate-x-1/2 rounded-full bg-gradient-to-r from-ryvie-blue to-blue-600 opacity-0 transition-all duration-200 group-hover/nav:w-6 group-hover/nav:opacity-100" />
-              </a>
+          <div className="hidden lg:flex items-center gap-2 flex-1">
+            {displayLinks.map((link) => (
+              link.type === 'page' ? (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className={`px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors duration-200 ${
+                    location.pathname === link.href
+                      ? 'bg-ryvie-blue text-white shadow-sm'
+                      : 'text-ryvie-gray hover:text-ryvie-blue hover:bg-blue-50'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap text-ryvie-gray hover:text-ryvie-blue hover:bg-blue-50 transition-colors duration-200"
+                >
+                  {link.name}
+                </a>
+              )
             ))}
           </div>
 
           {/* Boutons à droite */}
           <div className="hidden lg:flex items-center gap-2.5 flex-shrink-0 ml-auto">
             <a
+              href={downloadUrl}
+              download
+              className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-full shadow-sm hover:shadow-lg hover:scale-105 transition-all duration-200 font-medium text-sm whitespace-nowrap"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Télécharger Ryvie Desktop</span>
+            </a>
+            <a
               href="https://demo.ryvie.fr"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-ryvie-blue to-blue-600 text-white rounded-full shadow-sm hover:shadow-lg hover:scale-105 transition-all duration-200 font-medium text-sm whitespace-nowrap"
             >
-              <span>Découvrir la démo</span>
+              <span>Démo en ligne</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
-            <a
-              href="#opensource"
+            <Link
+              to="/opensource"
               className="px-4 py-2.5 rounded-full font-medium text-sm whitespace-nowrap border border-black/80 bg-black text-white hover:bg-white hover:text-black hover:border-black transition-all duration-200 flex items-center gap-2"
             >
               <span className="w-2.5 h-2.5 rounded-full bg-white"></span>
               <span>GitHub</span>
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -91,32 +135,52 @@ const Header = ({ scrolled }) => {
         {mobileMenuOpen && (
           <div className="lg:hidden mt-3 pb-4 animate-fade-in">
             <div className="flex flex-col gap-3 rounded-2xl bg-white/90 p-4 shadow-lg">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-ryvie-gray hover:text-ryvie-blue transition-colors duration-200 font-medium py-1"
-                >
-                  {link.name}
-                </a>
+              {displayLinks.map((link) => (
+                link.type === 'page' ? (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-ryvie-gray hover:text-ryvie-blue transition-colors duration-200 font-medium py-1"
+                  >
+                    {link.name}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-ryvie-gray hover:text-ryvie-blue transition-colors duration-200 font-medium py-1"
+                  >
+                    {link.name}
+                  </a>
+                )
               ))}
+              <a
+                href={downloadUrl}
+                download
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2 px-6 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-full hover:shadow-lg transition-all duration-200 font-medium mt-2"
+              >
+                <Download className="w-4 h-4" />
+                <span>Télécharger Ryvie Desktop</span>
+              </a>
               <a
                 href="https://demo.ryvie.fr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 px-6 py-2.5 bg-gradient-to-r from-ryvie-blue to-blue-600 text-white rounded-full hover:shadow-lg transition-all duration-200 font-medium mt-2"
+                className="flex items-center justify-center gap-2 px-6 py-2.5 bg-gradient-to-r from-ryvie-blue to-blue-600 text-white rounded-full hover:shadow-lg transition-all duration-200 font-medium"
               >
-                <span>Découvrir la démo</span>
+                <span>Démo en ligne</span>
                 <ExternalLink className="w-4 h-4" />
               </a>
-              <a
-                href="#opensource"
+              <Link
+                to="/opensource"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-6 py-2.5 border border-ryvie-blue text-ryvie-blue rounded-full hover:bg-ryvie-blue hover:text-white transition-all duration-200 font-medium text-center bg-white"
               >
                 GitHub
-              </a>
+              </Link>
             </div>
           </div>
         )}
