@@ -17,7 +17,7 @@ const Footer = () => {
       { name: 'Documentation', href: '#', type: 'anchor' },
     ],
     company: [
-      { name: 'À propos', href: '#', type: 'anchor' },
+      { name: 'À propos', href: '/about', type: 'page' },
       { name: 'Mentions légales', href: '#', type: 'anchor' },
       { name: 'Politique de confidentialité', href: '#', type: 'anchor' },
     ],

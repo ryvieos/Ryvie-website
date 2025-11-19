@@ -30,6 +30,7 @@ const Header = ({ scrolled, onShowComingSoon }) => {
     { name: 'Accueil', href: '/', type: 'page' },
     { name: 'Offres', href: '/offres', type: 'page' },
     { name: 'Open Source', href: '/opensource', type: 'page' },
+    { name: 'À propos', href: '/about', type: 'page' },
   ];
   
   const homeAnchors = [
@@ -46,11 +47,11 @@ const Header = ({ scrolled, onShowComingSoon }) => {
         scrolled ? 'glass-effect shadow-lg' : 'bg-white/90 backdrop-blur-md shadow-sm'
       }`}
     >
-      <nav className="mx-auto pl-4 pr-2 overflow-x-auto">
+      <nav className="px-4">
         {/* Hauteur fixe pour stabiliser la barre */}
-        <div className="flex items-center gap-20 h-20">
-          {/* Logo à gauche */}
-          <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
+        <div className="flex items-center h-20 gap-4 lg:gap-6">
+          {/* Logo + Ryvie à gauche */}
+          <Link to="/" className="flex items-center gap-2 group flex-shrink-0">
             <img
               src="/images/logo.png"
               alt="Ryvie Logo"
@@ -63,22 +64,22 @@ const Header = ({ scrolled, onShowComingSoon }) => {
             <div className="h-12 w-12 bg-gradient-to-br from-ryvie-blue to-blue-600 rounded-xl items-center justify-center hidden">
               <span className="text-white font-bold text-xl">R</span>
             </div>
-            <span className="text-3xl font-semibold bg-gradient-to-r from-ryvie-blue to-blue-600 bg-clip-text text-transparent leading-tight tracking-tight">
+            <span className="text-xl lg:text-2xl font-semibold bg-gradient-to-r from-ryvie-blue to-blue-600 bg-clip-text text-transparent leading-tight tracking-tight">
               Ryvie
             </span>
           </Link>
 
-          {/* Navigation centrale moderne */}
-          <div className="hidden lg:flex items-center gap-2 flex-1">
+          {/* Navigation au centre */}
+          <div className="hidden lg:flex items-center gap-1.5 xl:gap-3 flex-1 justify-center min-w-0">
             {displayLinks.map((link) => (
               link.type === 'page' ? (
                 <Link
                   key={link.name}
                   to={link.href}
-                  className={`px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors duration-200 ${
+                  className={`px-3.5 py-1.5 rounded-full text-[0.9rem] font-semibold whitespace-nowrap transition-colors duration-200 ${
                     location.pathname === link.href
                       ? 'bg-ryvie-blue text-white shadow-sm'
-                      : 'text-ryvie-gray hover:text-ryvie-blue hover:bg-blue-50'
+                      : 'text-ryvie-dark hover:text-ryvie-blue hover:bg-blue-50'
                   }`}
                 >
                   {link.name}
@@ -87,7 +88,7 @@ const Header = ({ scrolled, onShowComingSoon }) => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap text-ryvie-gray hover:text-ryvie-blue hover:bg-blue-50 transition-colors duration-200"
+                  className="px-3.5 py-1.5 rounded-full text-[0.9rem] font-semibold whitespace-nowrap text-ryvie-dark hover:text-ryvie-blue hover:bg-blue-50 transition-colors duration-200"
                 >
                   {link.name}
                 </a>
@@ -96,32 +97,34 @@ const Header = ({ scrolled, onShowComingSoon }) => {
           </div>
 
           {/* Boutons à droite */}
-          <div className="hidden lg:flex items-center gap-2.5 flex-shrink-0 ml-auto">
+          <div className="hidden lg:flex items-center gap-2 flex-shrink-0">
             <a
               href={downloadUrl}
               download
               onClick={() => analytics.downloadDesktop(osName)}
-              className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-full shadow-sm hover:shadow-lg hover:scale-105 transition-all duration-200 font-medium text-sm whitespace-nowrap"
+              className="flex items-center gap-1.5 px-3 xl:px-4 py-2 text-xs xl:text-sm bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-full shadow-sm hover:shadow-lg hover:scale-105 transition-all duration-200 font-medium whitespace-nowrap"
             >
-              <Download className="w-3.5 h-3.5" />
-              <span>Télécharger Ryvie Desktop</span>
+              <Download className="w-3 xl:w-3.5 h-3 xl:h-3.5" />
+              <span className="hidden xl:inline">Télécharger Ryvie Desktop</span>
+              <span className="xl:hidden">Télécharger</span>
             </a>
             <button
               onClick={() => {
                 analytics.clickDemo();
                 onShowComingSoon();
               }}
-              className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-ryvie-blue to-blue-600 text-white rounded-full shadow-sm hover:shadow-lg hover:scale-105 transition-all duration-200 font-medium text-sm whitespace-nowrap"
+              className="flex items-center gap-1.5 px-3 xl:px-4 py-2 text-xs xl:text-sm bg-gradient-to-r from-ryvie-blue to-blue-600 text-white rounded-full shadow-sm hover:shadow-lg hover:scale-105 transition-all duration-200 font-medium whitespace-nowrap"
             >
-              <span>Démo en ligne</span>
-              <ExternalLink className="w-3.5 h-3.5" />
+              <span className="hidden xl:inline">Démo en ligne</span>
+              <span className="xl:hidden">Démo</span>
+              <ExternalLink className="w-3 xl:w-3.5 h-3 xl:h-3.5" />
             </button>
             <button
               onClick={() => {
                 analytics.clickGithub();
                 onShowComingSoon();
               }}
-              className="px-4 py-2.5 rounded-full font-medium text-sm whitespace-nowrap border border-black/80 bg-black text-white hover:bg-white hover:text-black hover:border-black transition-all duration-200 flex items-center gap-2"
+              className="px-3 xl:px-4 py-2 rounded-full font-medium text-xs xl:text-sm whitespace-nowrap border border-black/80 bg-black text-white hover:bg-white hover:text-black hover:border-black transition-all duration-200 flex items-center gap-1.5"
             >
               <span className="w-2.5 h-2.5 rounded-full bg-white"></span>
               <span>GitHub</span>

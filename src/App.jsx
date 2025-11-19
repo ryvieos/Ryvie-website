@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Offres from './pages/Offres';
 import OpenSourcePage from './pages/OpenSourcePage';
+import About from './pages/About';
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -27,6 +28,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/offres" element={<Offres />} />
             <Route path="/opensource" element={<OpenSourcePage />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </main>
         <Footer />

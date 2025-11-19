@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Cloud, Shield, Zap, Wifi, ExternalLink, Play } from 'lucide-react';
 
 const Hero = () => {
@@ -160,9 +161,9 @@ const Hero = () => {
                 <p className="text-ryvie-gray text-sm mb-4">
                   Ordinateurs reconditionnés transformés en cloud personnel. Écologique et économique.
                 </p>
-                <a href="#pricing" className="block text-center px-6 py-2 border-2 border-green-500 text-green-600 rounded-full hover:bg-green-500 hover:text-white transition-all font-semibold">
+                <Link to="/offres" className="block text-center px-6 py-2 border-2 border-green-500 text-green-600 rounded-full hover:bg-green-500 hover:text-white transition-all font-semibold">
                   Découvrir la gamme
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -183,9 +184,9 @@ const Hero = () => {
                 <p className="text-ryvie-gray text-sm mb-4">
                   Hardware neuf haute performance avec support IA intégré. Pour les professionnels exigeants.
                 </p>
-                <a href="#pricing" className="block text-center px-6 py-2 bg-gradient-to-r from-ryvie-blue to-blue-600 text-white rounded-full hover:shadow-lg hover:scale-105 transition-all font-semibold">
+                <Link to="/offres" className="block text-center px-6 py-2 bg-gradient-to-r from-ryvie-blue to-blue-600 text-white rounded-full hover:shadow-lg hover:scale-105 transition-all font-semibold">
                   Découvrir la gamme
-                </a>
+                </Link>
               </div>
             </div>
 
