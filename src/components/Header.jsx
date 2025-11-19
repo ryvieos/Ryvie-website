@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ExternalLink, Download } from 'lucide-react';
+import { analytics } from '../utils/analytics';
 
-const Header = ({ scrolled }) => {
+const Header = ({ scrolled, onShowComingSoon }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState('/logiciel/Ryvie Setup 0.0.2.exe');
   const [osName, setOsName] = useState('Windows');
@@ -41,7 +42,7 @@ const Header = ({ scrolled }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 border-b border-white/60 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-40 border-b border-white/60 transition-all duration-300 ${
         scrolled ? 'glass-effect shadow-lg' : 'bg-white/90 backdrop-blur-md shadow-sm'
       }`}
     >
@@ -99,27 +100,32 @@ const Header = ({ scrolled }) => {
             <a
               href={downloadUrl}
               download
+              onClick={() => analytics.downloadDesktop(osName)}
               className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-full shadow-sm hover:shadow-lg hover:scale-105 transition-all duration-200 font-medium text-sm whitespace-nowrap"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Télécharger Ryvie Desktop</span>
             </a>
-            <a
-              href="https://demo.ryvie.fr"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => {
+                analytics.clickDemo();
+                onShowComingSoon();
+              }}
               className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-ryvie-blue to-blue-600 text-white rounded-full shadow-sm hover:shadow-lg hover:scale-105 transition-all duration-200 font-medium text-sm whitespace-nowrap"
             >
               <span>Démo en ligne</span>
               <ExternalLink className="w-3.5 h-3.5" />
-            </a>
-            <Link
-              to="/opensource"
+            </button>
+            <button
+              onClick={() => {
+                analytics.clickGithub();
+                onShowComingSoon();
+              }}
               className="px-4 py-2.5 rounded-full font-medium text-sm whitespace-nowrap border border-black/80 bg-black text-white hover:bg-white hover:text-black hover:border-black transition-all duration-200 flex items-center gap-2"
             >
               <span className="w-2.5 h-2.5 rounded-full bg-white"></span>
               <span>GitHub</span>
-            </Link>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -159,28 +165,36 @@ const Header = ({ scrolled }) => {
               <a
                 href={downloadUrl}
                 download
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  analytics.downloadDesktop(osName);
+                  setMobileMenuOpen(false);
+                }}
                 className="flex items-center justify-center gap-2 px-6 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-full hover:shadow-lg transition-all duration-200 font-medium mt-2"
               >
                 <Download className="w-4 h-4" />
                 <span>Télécharger Ryvie Desktop</span>
               </a>
-              <a
-                href="https://demo.ryvie.fr"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => {
+                  analytics.clickDemo();
+                  onShowComingSoon();
+                  setMobileMenuOpen(false);
+                }}
                 className="flex items-center justify-center gap-2 px-6 py-2.5 bg-gradient-to-r from-ryvie-blue to-blue-600 text-white rounded-full hover:shadow-lg transition-all duration-200 font-medium"
               >
                 <span>Démo en ligne</span>
                 <ExternalLink className="w-4 h-4" />
-              </a>
-              <Link
-                to="/opensource"
-                onClick={() => setMobileMenuOpen(false)}
+              </button>
+              <button
+                onClick={() => {
+                  analytics.clickGithub();
+                  onShowComingSoon();
+                  setMobileMenuOpen(false);
+                }}
                 className="px-6 py-2.5 border border-ryvie-blue text-ryvie-blue rounded-full hover:bg-ryvie-blue hover:text-white transition-all duration-200 font-medium text-center bg-white"
               >
                 GitHub
-              </Link>
+              </button>
             </div>
           </div>
         )}

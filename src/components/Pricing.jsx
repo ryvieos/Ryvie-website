@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Recycle, Zap, Code, Check } from 'lucide-react';
+import { analytics } from '../utils/analytics';
 
 const Pricing = () => {
   const [showPreorderInfo, setShowPreorderInfo] = useState(false);
@@ -145,6 +146,7 @@ const Pricing = () => {
                     }`}
                     onClick={() => {
                       if (plan.price !== 'Gratuit') {
+                        analytics.clickPreorder(plan.name);
                         setShowPreorderInfo(true);
                       }
                     }}
@@ -167,6 +169,7 @@ const Pricing = () => {
               </p>
               <a
                 href="mailto:contact@ryvie.fr"
+                onClick={() => analytics.clickContact('pricing_section')}
                 className="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-ryvie-blue to-blue-600 text-white rounded-full font-semibold hover:shadow-xl transition-all duration-200 hover:scale-105"
               >
                 Nous contacter
@@ -191,6 +194,7 @@ const Pricing = () => {
             <div className="flex flex-col sm:flex-row gap-3 sm:justify-end">
               <a
                 href="mailto:contact@ryvie.fr"
+                onClick={() => analytics.clickContact('preorder_modal')}
                 className="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-ryvie-blue text-ryvie-blue hover:bg-ryvie-blue hover:text-white transition-all text-sm font-semibold"
               >
                 Nous contacter
