@@ -54,11 +54,11 @@ const Applications = () => {
             >
               <div className="flex items-start space-x-6">
                 {/* App Icon */}
-                <div className="flex-shrink-0 w-20 h-20 rounded-2xl shadow-lg overflow-hidden bg-gray-100">
+                <div className="flex-shrink-0 w-20 h-20 rounded-2xl shadow-lg overflow-hidden bg-white">
                   <img 
                     src={`/images/apps/${app.logo}`}
                     alt={`${app.name} logo`}
-                    className={`w-full h-full object-cover ${app.name === 'rDrive' ? 'scale-110' : ''}`}
+                    className={`w-full h-full object-cover ${app.name === 'rDrive' ? 'scale-125' : ''}`}
                   />
                 </div>
 
