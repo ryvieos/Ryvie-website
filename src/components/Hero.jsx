@@ -62,7 +62,7 @@ const Hero = () => {
         {/* Titre principal centré */}
         <div className="text-center mb-16 animate-slide-up">
           <div className="inline-block px-6 py-2 bg-ryvie-blue/10 rounded-full mb-6">
-            <span className="text-ryvie-blue font-semibold">Votre Cloud Personnel</span>
+            <span className="text-ryvie-blue font-semibold">Votre Cloud Personnel open source</span>
           </div>
           
           <h1 className="text-5xl lg:text-7xl font-bold leading-tight mb-6">
@@ -72,7 +72,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-xl text-ryvie-gray leading-relaxed max-w-3xl mx-auto mb-12">
-            Ryvie est votre cloud personnel qui permet de stocker photos, vidéos, documents et d'installer des applications. 
+            Ryvie est votre cloud personnel open source qui permet de stocker photos, vidéos, documents et d'installer des applications. 
             <span className="font-semibold text-ryvie-dark"> Les données restent chez vous,</span> accédez-y partout dans le monde.
           </p>
         </div>
