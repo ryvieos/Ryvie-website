@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ryvie-website
+  namespace: ryvie
+  labels:
+    app: ryvie-website
+spec:
+  type: ClusterIP
+  selector:
+    app: ryvie-website
+  ports:
+  - name: frontend
+    port: 3000
+    targetPort: 3000
+    protocol: TCP
+  - name: backend
+    port: 3001
+    targetPort: 3001
+    protocol: TCP

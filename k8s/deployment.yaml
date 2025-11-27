@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ryvie-website
+  namespace: ryvie
+  labels:
+    app: ryvie-website
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ryvie-website
+  template:
+    metadata:
+      labels:
+        app: ryvie-website
+    spec:
+      containers:
+      - name: ryvie-app
+        image: julescloud/ryvie-website:v0.0.0
+        imagePullPolicy: Always
+        ports:
+        - name: frontend
+          containerPort: 3000
+          protocol: TCP
+        - name: backend
+          containerPort: 3001
+          protocol: TCP
+        env:
+        - name: NODE_ENV
+          value: "production"
+        - name: PORT
+          value: "3001"
+        volumeMounts:
+        - name: analytics-data
+          mountPath: /app/server/data
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 10
+          periodSeconds: 5
+      volumes:
+      - name: analytics-data
+        persistentVolumeClaim:
+          claimName: ryvie-analytics-pvc

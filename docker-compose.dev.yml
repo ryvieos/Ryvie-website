@@ -1,14 +1,15 @@
 services:
+  # Application complète (Frontend + Backend)
   ryvie-app:
-    image: julescloud/ryvie-website:v0.0.0
     build:
       context: .
       dockerfile: Dockerfile
     container_name: ryvie-app
     ports:
-      - "3000:3000"
-      - "3001:3001"
+      - "3000:3000"  # Frontend
+      - "3001:3001"  # Backend
     volumes:
+      # Persister les données analytics
       - ./server/data:/app/server/data
     environment:
       - NODE_ENV=production
