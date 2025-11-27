@@ -1,41 +1,19 @@
 version: '3.8'
 
 services:
-  # Frontend React/Vite
-  frontend:
+  # Application complète (Frontend + Backend)
+  ryvie-app:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: ryvie-frontend
+    container_name: ryvie-app
     ports:
-      - "3000:3000"
-    depends_on:
-      - backend
-    networks:
-      - ryvie-network
-    restart: unless-stopped
-
-  # Backend Express
-  backend:
-    build:
-      context: ./server
-      dockerfile: Dockerfile
-    container_name: ryvie-backend
-    ports:
-      - "3001:3001"
+      - "3000:3000"  # Frontend
+      - "3001:3001"  # Backend
     volumes:
       # Persister les données analytics
-      - ./server/data:/app/data
+      - ./server/data:/app/server/data
     environment:
       - NODE_ENV=production
       - PORT=3001
-    networks:
-      - ryvie-network
     restart: unless-stopped
-
-networks:
-  ryvie-network:
-    driver: bridge
-
-volumes:
-  analytics-data:

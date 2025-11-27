@@ -2,20 +2,28 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Copier les fichiers de dépendances
+# Copier et installer les dépendances du frontend
 COPY package*.json ./
-
-# Installer les dépendances
 RUN npm ci
 
-# Copier le reste des fichiers
+# Copier et installer les dépendances du backend
+COPY server/package*.json ./server/
+RUN cd server && npm ci --only=production
+
+# Copier tous les fichiers
 COPY . .
 
-# Build de l'application
+# Build du frontend
 RUN npm run build
 
-# Exposer le port 3000
-EXPOSE 3000
+# Créer le dossier data pour le backend
+RUN mkdir -p server/data
 
-# Démarrer le serveur de preview Vite
-CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "3000"]
+# Exposer les ports
+EXPOSE 3000 3001
+
+# Script de démarrage pour lancer les deux services
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+CMD ["docker-entrypoint.sh"]
