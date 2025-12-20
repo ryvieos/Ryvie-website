@@ -12,6 +12,6 @@ export default defineConfig({
     port: 3000,
     host: true,
     strictPort: true,
-    allowedHosts: ['all']
+    allowedHosts: ['all', 'ryvie.fr', 'www.ryvie.fr']
   }
 })
