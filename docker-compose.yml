@@ -1,6 +1,6 @@
 services:
   ryvie-app:
-    image: julescloud/ryvie-website:v0.0.0
+    image: julescloud/ryvie-website:v0.0.1
     build:
       context: .
       dockerfile: Dockerfile
