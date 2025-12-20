@@ -21,17 +21,17 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section id="how" className="py-24 bg-white">
+    <section id="how" className="py-16">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-4">
             Comment ça <span className="text-gradient">marche</span> ?
           </h2>
-          <p className="text-lg text-ryvie-gray mb-2">
+          <p className="text-lg text-white/80 mb-2">
             Ryvie est aussi simple à utiliser qu'un smartphone.
           </p>
-          <p className="text-lg text-ryvie-gray">
-            En <span className="font-semibold text-ryvie-dark">3 étapes guidées</span>, votre cloud personnel est prêt à l'emploi.
+          <p className="text-lg text-white/80">
+            En <span className="font-semibold text-white">3 étapes guidées</span>, votre cloud personnel est prêt à l'emploi.
           </p>
         </div>
 
@@ -39,9 +39,9 @@ const HowItWorks = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {steps.map((step, index) => {
               const numberBg = [
-                "bg-blue-100 text-blue-600",
-                "bg-emerald-100 text-emerald-600",
-                "bg-purple-100 text-purple-600"
+                "bg-white/10 text-ryvie-blue border border-white/10",
+                "bg-white/10 text-emerald-300 border border-white/10",
+                "bg-white/10 text-purple-300 border border-white/10"
               ][index];
 
               const iconBg = [
@@ -52,11 +52,6 @@ const HowItWorks = () => {
 
               return (
               <div key={index} className="relative">
-                {/* Connector line */}
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-ryvie-blue to-transparent -z-10"></div>
-                )}
-                
                 <div className="text-center group">
                   {/* Step number */}
                   <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full mb-4 font-bold text-xl shadow-sm ${numberBg}`}>
@@ -69,8 +64,8 @@ const HowItWorks = () => {
                   </div>
                   
                   {/* Content */}
-                  <h3 className="text-xl font-bold mb-3 text-ryvie-dark">{step.title}</h3>
-                  <p className="text-ryvie-gray leading-relaxed">{step.description}</p>
+                  <h3 className="text-xl font-bold mb-3 text-white">{step.title}</h3>
+                  <p className="text-white/75 leading-relaxed">{step.description}</p>
                 </div>
               </div>
               );
@@ -79,9 +74,9 @@ const HowItWorks = () => {
 
           {/* Additional info */}
           <div className="mt-16 text-center">
-            <div className="inline-block bg-gradient-to-r from-ryvie-blue/10 to-blue-600/10 rounded-2xl px-8 py-6 max-w-2xl">
-              <p className="text-lg text-ryvie-gray">
-                <span className="font-semibold text-ryvie-dark">Installation plug-and-play :</span> pas besoin d'être expert, 
+            <div className="inline-block glass-effect rounded-2xl px-8 py-6 max-w-2xl">
+              <p className="text-lg text-white/80">
+                <span className="font-semibold text-white">Installation plug-and-play :</span> pas besoin d'être expert, 
                 Ryvie vous guide étape par étape jusqu'à votre premier cloud personnel.
               </p>
             </div>

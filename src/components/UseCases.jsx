@@ -1,5 +1,6 @@
 import React from 'react';
 import { Users, Briefcase, Camera, Home } from 'lucide-react';
+import BackgroundRibbons from './BackgroundRibbons';
 
 const UseCases = () => {
   const cases = [
@@ -50,13 +51,14 @@ const UseCases = () => {
   ];
 
   return (
-    <section id="usecases" className="py-24 bg-white">
-      <div className="container mx-auto px-6">
+    <section id="usecases" className="relative py-24 overflow-hidden">
+      <BackgroundRibbons variant="section" />
+      <div className="container mx-auto px-6 relative">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white">
             Pour <span className="text-gradient">qui</span> ?
           </h2>
-          <p className="text-xl text-ryvie-gray leading-relaxed">
+          <p className="text-xl text-white/80 leading-relaxed">
             Ryvie s'adapte à tous les profils et tous les besoins
           </p>
         </div>
@@ -66,18 +68,18 @@ const UseCases = () => {
             {cases.map((useCase, index) => (
               <div 
                 key={index}
-                className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+                className="glass-effect rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
               >
                 {/* Icon & Title */}
                 <div className="flex items-center space-x-4 mb-6">
                   <div className={`w-16 h-16 bg-gradient-to-br ${useCase.color} rounded-2xl flex items-center justify-center shadow-lg`}>
                     <useCase.icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-ryvie-dark">{useCase.title}</h3>
+                  <h3 className="text-2xl font-bold text-white">{useCase.title}</h3>
                 </div>
 
                 {/* Description */}
-                <p className="text-ryvie-gray leading-relaxed mb-6">
+                <p className="text-white/80 leading-relaxed mb-6">
                   {useCase.description}
                 </p>
 
@@ -86,7 +88,7 @@ const UseCases = () => {
                   {useCase.benefits.map((benefit, idx) => (
                     <div key={idx} className="flex items-start space-x-3">
                       <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-br ${useCase.color} mt-2 flex-shrink-0`}></div>
-                      <span className="text-sm text-ryvie-gray">{benefit}</span>
+                      <span className="text-sm text-white/75">{benefit}</span>
                     </div>
                   ))}
                 </div>
@@ -96,13 +98,13 @@ const UseCases = () => {
 
           {/* CTA */}
           <div className="mt-16 text-center">
-            <div className="inline-block bg-gradient-to-r from-ryvie-blue/10 to-blue-600/10 rounded-2xl p-8 max-w-2xl">
-              <p className="text-lg text-ryvie-gray mb-6">
-                <span className="font-semibold text-ryvie-dark">Quel que soit votre profil,</span>
+            <div className="inline-block glass-effect rounded-2xl p-8 max-w-2xl">
+              <p className="text-lg text-white/80 mb-6">
+                <span className="font-semibold text-white">Quel que soit votre profil,</span>
                 <br />
                 Ryvie s'adapte à vos besoins spécifiques
               </p>
-              <button className="px-8 py-3 bg-gradient-to-r from-ryvie-blue to-blue-600 text-white rounded-full font-semibold hover:shadow-xl transition-all duration-200 hover:scale-105">
+              <button className="px-8 py-3 bg-gradient-to-r from-ryvie-electric to-ryvie-blue text-white rounded-full font-semibold hover:shadow-xl transition-all duration-200 hover:scale-105">
                 Découvrir toutes les possibilités
               </button>
             </div>

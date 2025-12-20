@@ -34,13 +34,13 @@ const Applications = () => {
   ];
 
   return (
-    <section id="applications" className="py-24 bg-gradient-to-b from-gray-50 to-white">
+    <section id="applications" className="py-16">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
             Applications <span className="text-gradient">Ryvie</span>
           </h2>
-          <p className="text-xl text-ryvie-gray">
+          <p className="text-xl text-white/80">
             Des applications développées spécialement pour Ryvie, pensées pour la simplicité et la performance
           </p>
         </div>
@@ -50,7 +50,7 @@ const Applications = () => {
           {apps.map((app, index) => (
             <div 
               key={index}
-              className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group"
+              className="glass-effect rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group"
             >
               <div className="flex items-start space-x-6">
                 {/* App Icon */}
@@ -58,14 +58,14 @@ const Applications = () => {
                   <img 
                     src={`/images/apps/${app.logo}`}
                     alt={`${app.name} logo`}
-                    className={`w-full h-full object-cover ${app.name === 'rDrive' ? 'scale-125' : ''}`}
+                    className={`w-full h-full object-cover ${app.name === 'rTransfer' || app.name === 'rDrop' ? 'scale-110' : ''} ${app.name === 'rDrive' ? 'scale-125' : ''}`}
                   />
                 </div>
 
                 {/* App Info */}
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold mb-3 text-ryvie-dark">{app.name}</h3>
-                  <p className="text-ryvie-gray leading-relaxed">{app.description}</p>
+                  <h3 className="text-2xl font-bold mb-3 text-white">{app.name}</h3>
+                  <p className="text-white/75 leading-relaxed">{app.description}</p>
                 </div>
               </div>
             </div>
@@ -75,7 +75,7 @@ const Applications = () => {
         {/* rAI Special Section */}
         <div className="max-w-6xl mx-auto">
           <div className="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-1 shadow-2xl">
-            <div className="bg-white rounded-3xl p-8 lg:p-12">
+            <div className="glass-effect rounded-3xl p-8 lg:p-12">
               <div className="flex flex-col lg:flex-row items-start lg:items-center space-y-6 lg:space-y-0 lg:space-x-8">
                 {/* rAI Icon */}
                 <div className="flex-shrink-0">
@@ -96,25 +96,25 @@ const Applications = () => {
 
                 {/* rAI Info */}
                 <div className="flex-1">
-                  <div className="inline-block px-4 py-1 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-full mb-4">
-                    <span className="text-indigo-700 font-semibold text-sm">Intelligence Artificielle Sécurisée</span>
+                  <div className="inline-block px-4 py-1 bg-white/10 border border-white/10 rounded-full mb-4">
+                    <span className="text-white/80 font-semibold text-sm">Intelligence Artificielle Sécurisée</span>
                   </div>
-                  <h3 className="text-3xl font-bold mb-4 text-ryvie-dark">rAI</h3>
-                  <p className="text-lg text-ryvie-gray leading-relaxed mb-4">
+                  <h3 className="text-3xl font-bold mb-4 text-white">rAI</h3>
+                  <p className="text-lg text-white/75 leading-relaxed mb-4">
                     Connectez-vous à des dizaines d'IA (ChatGPT, Claude, Gemini, etc.) tout en protégeant vos données sensibles.
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <div className="flex items-center space-x-2 bg-indigo-50 px-4 py-2 rounded-full">
+                    <div className="flex items-center space-x-2 bg-white/10 border border-white/10 px-4 py-2 rounded-full">
                       <div className="w-2 h-2 bg-indigo-600 rounded-full"></div>
-                      <span className="text-sm font-medium text-indigo-900">Filtrage des données sensibles</span>
+                      <span className="text-sm font-medium text-white/80">Filtrage des données sensibles</span>
                     </div>
-                    <div className="flex items-center space-x-2 bg-purple-50 px-4 py-2 rounded-full">
+                    <div className="flex items-center space-x-2 bg-white/10 border border-white/10 px-4 py-2 rounded-full">
                       <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                      <span className="text-sm font-medium text-purple-900">Protection de la vie privée</span>
+                      <span className="text-sm font-medium text-white/80">Protection de la vie privée</span>
                     </div>
-                    <div className="flex items-center space-x-2 bg-pink-50 px-4 py-2 rounded-full">
+                    <div className="flex items-center space-x-2 bg-white/10 border border-white/10 px-4 py-2 rounded-full">
                       <div className="w-2 h-2 bg-pink-600 rounded-full"></div>
-                      <span className="text-sm font-medium text-pink-900">Cybersécurité renforcée</span>
+                      <span className="text-sm font-medium text-white/80">Cybersécurité renforcée</span>
                     </div>
                   </div>
                 </div>

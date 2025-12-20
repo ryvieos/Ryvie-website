@@ -12,7 +12,6 @@ const Footer = () => {
       { name: 'Offres', href: '/offres', type: 'page' },
     ],
     resources: [
-      { name: 'Démos vidéo', href: '/#videos', type: 'anchor' },
       { name: 'FAQ & Contact', href: '/#faq', type: 'anchor' },
       { name: 'Documentation', href: '#', type: 'anchor' },
     ],
@@ -23,7 +22,6 @@ const Footer = () => {
     ],
     community: [
       { name: 'GitHub', href: 'https://github.com/ryvieos', external: true },
-      { name: 'Open Source', href: '/opensource', type: 'page' },
       { name: 'Contribuer', href: 'https://github.com/ryvieos', external: true },
     ],
   };
@@ -184,21 +182,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Demo Link Banner */}
-        <div className="bg-gradient-to-r from-ryvie-blue to-blue-600 rounded-2xl p-8 mb-12 text-center">
-          <h3 className="text-2xl font-bold mb-4">Essayez Ryvie dès maintenant</h3>
-          <p className="mb-6 opacity-95">Découvrez notre démo en ligne et testez toutes les fonctionnalités</p>
-          <a
-            href="https://demo.ryvie.fr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 px-8 py-3 bg-white text-ryvie-blue rounded-full font-semibold hover:shadow-xl transition-all duration-200 hover:scale-105"
-          >
-            <span>Accéder à la démo</span>
-            <ExternalLink className="w-4 h-4" />
-          </a>
-        </div>
-
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
@@ -216,7 +199,7 @@ const Footer = () => {
         {/* Additional Info */}
         <div className="mt-8 text-center">
           <p className="text-gray-500 text-sm">
-            Ryvie est un projet open source qui respecte votre vie privée et vos données personnelles.
+            Ryvie est un projet Source Available qui respecte votre vie privée et vos données personnelles.
           </p>
         </div>
       </div>

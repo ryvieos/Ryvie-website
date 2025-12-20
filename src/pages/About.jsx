@@ -1,5 +1,6 @@
 import React from 'react';
 import { Shield, Heart, Code, Users, Zap, Globe } from 'lucide-react';
+import BackgroundRibbons from '../components/BackgroundRibbons';
 
 const About = () => {
   const values = [
@@ -15,8 +16,8 @@ const About = () => {
     },
     {
       icon: Code,
-      title: "Open Source",
-      description: "Le cœur de Ryvie est open source. Transparence totale sur le code, contributions bienvenues, et communauté au centre du projet."
+      title: "Source Available",
+      description: "Le cœur de Ryvie est Source Available. Transparence totale sur le code, contributions bienvenues, et communauté au centre du projet."
     },
     {
       icon: Users,
@@ -38,17 +39,18 @@ const About = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-blue-50 via-white to-cyan-50 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-ryvie-blue/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+      <section className="relative py-24 overflow-hidden">
+        <BackgroundRibbons variant="section" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-ryvie-electric/20 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-ryvie-blue/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
         
         <div className="container mx-auto px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl lg:text-6xl font-bold mb-6">
               À propos de <span className="text-gradient">Ryvie</span>
             </h1>
-            <p className="text-xl text-ryvie-gray leading-relaxed mb-8">
-              Ryvie est né d'une conviction simple : vos données personnelles doivent rester <span className="font-semibold text-ryvie-dark">chez vous</span>, 
+            <p className="text-xl text-white/80 leading-relaxed mb-8">
+              Ryvie est né d'une conviction simple : vos données personnelles doivent rester <span className="font-semibold text-white">chez vous</span>, 
               tout en restant accessibles partout dans le monde.
             </p>
           </div>
@@ -56,29 +58,29 @@ const About = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12">
               Notre <span className="text-gradient">Mission</span>
             </h2>
             
-            <div className="prose prose-lg max-w-none text-ryvie-gray">
-              <p className="text-lg leading-relaxed mb-6">
+            <div className="prose prose-lg max-w-none text-white/80 prose-headings:text-white prose-strong:text-white prose-a:text-ryvie-blue">
+              <p className="text-lg leading-relaxed mb-6 text-white/80">
                 Dans un monde où les géants du cloud exploitent vos données personnelles, 
                 où les abonnements s'accumulent et où la vie privée devient un luxe, 
-                <strong className="text-ryvie-dark"> Ryvie propose une alternative</strong>.
+                <strong className="text-white"> Ryvie propose une alternative</strong>.
               </p>
               
-              <p className="text-lg leading-relaxed mb-6">
+              <p className="text-lg leading-relaxed mb-6 text-white/80">
                 Nous croyons que chacun devrait pouvoir héberger son propre cloud personnel, 
                 simplement, sans compétences techniques particulières. Un cloud qui respecte 
                 votre vie privée, qui ne vous enferme pas dans des abonnements coûteux, 
                 et qui donne une seconde vie à du matériel informatique.
               </p>
 
-              <p className="text-lg leading-relaxed">
-                <strong className="text-ryvie-dark">Ryvie, c'est votre cloud, vos règles.</strong> 
+              <p className="text-lg leading-relaxed text-white/80">
+                <strong className="text-white">Ryvie, c'est votre cloud, vos règles.</strong> 
                 Stockez vos photos, vidéos, documents, installez vos applications préférées en un clic, 
                 et accédez à tout depuis n'importe où. Le tout en gardant le contrôle total.
               </p>
@@ -88,7 +90,7 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl lg:text-4xl font-bold text-center mb-16">
             Nos <span className="text-gradient">Valeurs</span>
@@ -98,13 +100,13 @@ const About = () => {
             {values.map((value, index) => (
               <div 
                 key={index}
-                className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                className="glass-effect rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-ryvie-blue to-blue-600 rounded-2xl mb-6 shadow-lg">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-ryvie-electric to-ryvie-blue rounded-2xl mb-6 shadow-lg">
                   <value.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-ryvie-dark mb-3">{value.title}</h3>
-                <p className="text-ryvie-gray leading-relaxed">{value.description}</p>
+                <h3 className="text-xl font-bold text-white mb-3">{value.title}</h3>
+                <p className="text-white/75 leading-relaxed">{value.description}</p>
               </div>
             ))}
           </div>
@@ -112,14 +114,14 @@ const About = () => {
       </section>
 
       {/* Story Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12">
               L'histoire de <span className="text-gradient">Ryvie</span>
             </h2>
             
-            <div className="space-y-6 text-ryvie-gray text-lg leading-relaxed">
+            <div className="space-y-6 text-white/80 text-lg leading-relaxed">
               <p>
                 Ryvie est né de la frustration face aux solutions cloud actuelles : 
                 abonnements qui s'accumulent, données exploitées par les géants de la tech, 
@@ -133,15 +135,15 @@ const About = () => {
               </p>
 
               <p>
-                Le projet est <strong className="text-ryvie-dark">100% open source</strong>, 
+                Le projet est <strong className="text-white">Source Available</strong>, 
                 car nous croyons en la transparence et en la collaboration. 
                 Chaque ligne de code est accessible, auditable, et améliorable par la communauté.
               </p>
 
               <p>
                 Aujourd'hui, Ryvie propose deux gammes de produits : 
-                <strong className="text-ryvie-dark"> Économie Circulaire</strong> (ordinateurs reconditionnés) 
-                et <strong className="text-ryvie-dark">Pro</strong> (matériel neuf haute performance), 
+                <strong className="text-white"> Économie Circulaire</strong> (ordinateurs reconditionnés) 
+                et <strong className="text-white">Pro</strong> (matériel neuf haute performance), 
                 ainsi qu'une version logicielle gratuite pour ceux qui veulent installer Ryvie sur leur propre matériel.
               </p>
             </div>
@@ -150,22 +152,24 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-ryvie-blue to-blue-600 text-white">
+      <section className="py-20">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+          <div className="max-w-4xl mx-auto glass-effect rounded-3xl p-10 md:p-12 shadow-2xl">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-white">
             Rejoignez le mouvement
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-95">
+          <p className="text-xl mb-8 max-w-2xl mx-auto text-white/80">
             Reprenez le contrôle de vos données. Suivez-nous sur LinkedIn pour ne rien manquer du projet.
           </p>
           <a
             href="https://www.linkedin.com/company/ryvie"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-4 bg-white text-ryvie-blue rounded-full font-semibold hover:shadow-xl transition-all duration-200 hover:scale-105"
+            className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-ryvie-electric to-ryvie-blue text-white rounded-full font-semibold hover:shadow-xl transition-all duration-200 hover:scale-105"
           >
             Suivre Ryvie sur LinkedIn
           </a>
+          </div>
         </div>
       </section>
     </div>

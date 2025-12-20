@@ -8,17 +8,17 @@
   }
   
   body {
-    @apply bg-white text-ryvie-dark antialiased;
+    @apply bg-gradient-to-br from-ryvie-navy via-ryvie-navy-2 to-ryvie-navy text-white antialiased;
   }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-ryvie-blue to-blue-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-ryvie-electric to-ryvie-blue bg-clip-text text-transparent;
   }
   
   .glass-effect {
-    @apply bg-white/80 backdrop-blur-lg border border-gray-200/50;
+    @apply bg-white/10 backdrop-blur-lg border border-white/10;
   }
   
   .animate-fade-in {
@@ -63,6 +63,47 @@
   }
 }
 
+@keyframes ribbonDrift {
+  0% {
+    transform: translate3d(-8%, 6%, 0) rotate(-6deg) scale(1.02);
+  }
+  50% {
+    transform: translate3d(6%, -4%, 0) rotate(4deg) scale(1.05);
+  }
+  100% {
+    transform: translate3d(-8%, 6%, 0) rotate(-6deg) scale(1.02);
+  }
+}
+
+@keyframes ribbonDrift2 {
+  0% {
+    transform: translate3d(10%, -8%, 0) rotate(10deg) scale(1.04);
+  }
+  50% {
+    transform: translate3d(-4%, 6%, 0) rotate(-8deg) scale(1.02);
+  }
+  100% {
+    transform: translate3d(10%, -8%, 0) rotate(10deg) scale(1.04);
+  }
+}
+
+.hero-ribbon {
+  animation: ribbonDrift 14s ease-in-out infinite;
+  transform-origin: 60% 40%;
+}
+
+.hero-ribbon-2 {
+  animation: ribbonDrift2 18s ease-in-out infinite;
+  transform-origin: 40% 60%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ribbon,
+  .hero-ribbon-2 {
+    animation: none;
+  }
+}
+
 /* Smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
@@ -74,14 +115,14 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #050B1F;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #5DCCF5;
+  background: #1B6CFF;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3BADD9;
+  background: #00D4FF;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Play, Video } from 'lucide-react';
+import BackgroundRibbons from './BackgroundRibbons';
 
 const Videos = () => {
   const videos = [
@@ -18,16 +19,17 @@ const Videos = () => {
   ];
 
   return (
-    <section id="videos" className="py-24 bg-white">
-      <div className="container mx-auto px-6">
+    <section id="videos" className="relative py-24 overflow-hidden">
+      <BackgroundRibbons variant="subtle" />
+      <div className="container mx-auto px-6 relative">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-ryvie-blue to-blue-600 rounded-3xl mb-6 shadow-xl">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-ryvie-electric to-ryvie-blue rounded-3xl mb-6 shadow-xl">
             <Video className="w-10 h-10 text-white" />
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
             Démos <span className="text-gradient">vidéo</span>
           </h2>
-          <p className="text-xl text-ryvie-gray leading-relaxed">
+          <p className="text-xl text-white/80 leading-relaxed">
             Découvrez Ryvie en action à travers nos vidéos de démonstration
           </p>
         </div>
@@ -37,45 +39,55 @@ const Videos = () => {
             {videos.map((video, index) => (
               <div 
                 key={index}
-                className="w-full max-w-xl bg-gradient-to-br from-gray-50 to-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                className="w-full max-w-xl glass-effect rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
               >
                 {/* Video Placeholder */}
-                <div className="relative aspect-video bg-gradient-to-br from-ryvie-blue/20 to-blue-600/20 flex items-center justify-center group cursor-pointer overflow-hidden">
+                <div
+                  className="relative aspect-video bg-white/5 flex items-center justify-center group overflow-hidden"
+                  onClick={(e) => {
+                    const videoEl = e.currentTarget.querySelector('video');
+                    if (!videoEl) return;
+                    const p = videoEl.play();
+                    if (p && typeof p.catch === 'function') {
+                      p.catch(() => {
+                        videoEl.controls = true;
+                      });
+                    }
+                  }}
+                >
                   {/* Video réelle (si disponible) */}
                   {video.hasVideo && video.placeholder && (
                     <video 
-                      className="absolute inset-0 w-full h-full object-contain hidden"
-                      poster={`/videos/${video.placeholder}-poster.jpg`}
+                      className="absolute inset-0 w-full h-full object-contain"
+                      poster="/images/capturePC.png"
                       controls
                       loop
                       autoPlay
                       muted
                       playsInline
+                      preload="metadata"
+                      onError={(e) => {
+                        e.target.controls = true;
+                      }}
                       onLoadedData={(e) => {
-                        e.target.playbackRate = 1.3;
-                        e.target.classList.remove('hidden');
-                        e.target.nextSibling.classList.add('hidden');
+                        e.target.playbackRate = 1.1;
+                        const tryPlay = e.target.play();
+                        if (tryPlay && typeof tryPlay.catch === 'function') {
+                          tryPlay.catch(() => {
+                            e.target.controls = true;
+                          });
+                        }
                       }}
                     >
                       <source src={`/videos/${video.placeholder}.mp4`} type="video/mp4" />
                     </video>
                   )}
-
-                  {/* Placeholder UI */}
-                  <div className="text-center">
-                    <div className="inline-flex items-center justify-center w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full shadow-xl mb-4 group-hover:scale-110 transition-transform">
-                      <Play className="w-10 h-10 text-ryvie-blue ml-1" />
-                    </div>
-                    <p className="text-ryvie-gray font-medium px-4">
-                      Vidéo de démonstration à intégrer ici
-                    </p>
-                  </div>
                 </div>
 
                 {/* Video Info */}
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 text-ryvie-dark">{video.title}</h3>
-                  <p className="text-ryvie-gray leading-relaxed">{video.description}</p>
+                  <h3 className="text-xl font-bold mb-3 text-white">{video.title}</h3>
+                  <p className="text-white/75 leading-relaxed">{video.description}</p>
                 </div>
               </div>
             ))}
@@ -83,18 +95,18 @@ const Videos = () => {
 
           {/* Additional Info */}
           <div className="mt-16 text-center">
-            <div className="inline-block bg-gradient-to-r from-ryvie-blue/10 to-blue-600/10 rounded-2xl p-8 max-w-2xl">
-              <p className="text-lg text-ryvie-gray mb-4">
-                <span className="font-semibold text-ryvie-dark">Vous préférez essayer directement ?</span>
+            <div className="inline-block glass-effect rounded-2xl p-8 max-w-2xl">
+              <p className="text-lg text-white/80 mb-4">
+                <span className="font-semibold text-white">Vous préférez essayer directement ?</span>
               </p>
-              <p className="text-ryvie-gray mb-6">
+              <p className="text-white/70 mb-6">
                 Testez Ryvie en ligne avec notre démo interactive
               </p>
               <a
                 href="https://demo.ryvie.fr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 px-8 py-3 bg-gradient-to-r from-ryvie-blue to-blue-600 text-white rounded-full font-semibold hover:shadow-xl transition-all duration-200 hover:scale-105"
+                className="inline-flex items-center space-x-2 px-8 py-3 bg-gradient-to-r from-ryvie-electric to-ryvie-blue text-white rounded-full font-semibold hover:shadow-xl transition-all duration-200 hover:scale-105"
               >
                 <Play className="w-5 h-5" />
                 <span>Accéder à la démo</span>

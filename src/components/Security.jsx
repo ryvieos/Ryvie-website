@@ -1,5 +1,6 @@
 import React from 'react';
 import { Shield, Lock, Eye, Server, WifiOff, CheckCircle } from 'lucide-react';
+import BackgroundRibbons from './BackgroundRibbons';
 
 const Security = () => {
   const features = [
@@ -39,16 +40,17 @@ const Security = () => {
   ];
 
   return (
-    <section id="security" className="py-24 bg-white">
-      <div className="container mx-auto px-6">
+    <section id="security" className="relative py-24 overflow-hidden">
+      <BackgroundRibbons variant="subtle" />
+      <div className="container mx-auto px-6 relative">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-ryvie-blue to-blue-600 rounded-3xl mb-6 shadow-xl">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-ryvie-electric to-ryvie-blue rounded-3xl mb-6 shadow-xl">
             <Shield className="w-10 h-10 text-white" />
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
             Cybersécurité & <span className="text-gradient">Confidentialité</span>
           </h2>
-          <p className="text-xl text-ryvie-gray leading-relaxed">
+          <p className="text-xl text-white/80 leading-relaxed">
             Avec Ryvie, vos données sont protégées par conception. 
             Reprenez le contrôle total de votre vie numérique.
           </p>
@@ -60,19 +62,19 @@ const Security = () => {
             {features.map((feature, index) => (
               <div 
                 key={index}
-                className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 border border-gray-100 hover:border-ryvie-blue hover:shadow-xl transition-all duration-300"
+                className="glass-effect rounded-3xl p-8 hover:shadow-xl transition-all duration-300"
               >
                 <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${feature.color} rounded-2xl mb-6 shadow-lg`}>
                   <feature.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-ryvie-dark">{feature.title}</h3>
-                <p className="text-ryvie-gray leading-relaxed">{feature.description}</p>
+                <h3 className="text-2xl font-bold mb-4 text-white">{feature.title}</h3>
+                <p className="text-white/75 leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
 
           {/* rAI Security Highlight */}
-          <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-3xl p-8 lg:p-12 text-white mb-16">
+          <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-3xl p-8 lg:p-12 text-white mb-16 shadow-2xl">
             <div className="flex flex-col lg:flex-row items-center gap-8">
               <div className="flex-shrink-0">
                 <div className="w-24 h-24 bg-white/20 backdrop-blur-lg rounded-3xl flex items-center justify-center">
@@ -93,23 +95,23 @@ const Security = () => {
           </div>
 
           {/* Security Measures */}
-          <div className="bg-white rounded-3xl shadow-xl p-8 lg:p-12 border border-gray-100">
-            <h3 className="text-2xl font-bold mb-8 text-center text-ryvie-dark">
+          <div className="glass-effect rounded-3xl shadow-xl p-8 lg:p-12">
+            <h3 className="text-2xl font-bold mb-8 text-center text-white">
               Mesures de sécurité intégrées
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {securityPoints.map((point, index) => (
                 <div 
                   key={index}
-                  className="flex items-center space-x-3 p-4 bg-gradient-to-br from-gray-50 to-white rounded-xl border border-gray-100"
+                  className="flex items-center space-x-3 p-4 bg-white/5 rounded-xl border border-white/10"
                 >
                   <CheckCircle className="w-6 h-6 text-ryvie-blue flex-shrink-0" />
-                  <span className="text-ryvie-gray font-medium">{point}</span>
+                  <span className="text-white/75 font-medium">{point}</span>
                 </div>
               ))}
             </div>
             <div className="mt-8 text-center">
-              <p className="text-ryvie-gray italic">
+              <p className="text-white/70 italic">
                 "La sécurité n'est pas une option, c'est une priorité absolue dans la conception de Ryvie"
               </p>
             </div>

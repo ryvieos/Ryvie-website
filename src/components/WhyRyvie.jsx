@@ -1,5 +1,6 @@
 import React from 'react';
 import { TrendingUp, Users, Recycle, Shield } from 'lucide-react';
+import BackgroundRibbons from './BackgroundRibbons';
 
 const WhyRyvie = () => {
   const stats = [
@@ -26,22 +27,23 @@ const WhyRyvie = () => {
   ];
 
   return (
-    <section id="why" className="py-24 bg-gradient-to-b from-white to-gray-50">
-      <div className="container mx-auto px-6">
+    <section id="why" className="relative py-24 overflow-hidden">
+      <BackgroundRibbons variant="section" />
+      <div className="container mx-auto px-6 relative">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white">
             Pourquoi <span className="text-gradient">Ryvie</span> ?
           </h2>
-          <p className="text-xl text-ryvie-gray leading-relaxed">
+          <p className="text-xl text-white/80 leading-relaxed">
             Reprenez le contrôle sur vos données tout en participant à l'économie circulaire
           </p>
         </div>
 
         {/* Problem Statement */}
         <div className="max-w-4xl mx-auto mb-16">
-          <div className="bg-white rounded-3xl shadow-xl p-8 lg:p-12">
-            <h3 className="text-2xl font-bold mb-6 text-ryvie-dark">Le problème</h3>
-            <div className="space-y-4 text-lg text-ryvie-gray">
+          <div className="glass-effect rounded-3xl shadow-xl p-8 lg:p-12">
+            <h3 className="text-2xl font-bold mb-6 text-white">Le problème</h3>
+            <div className="space-y-4 text-lg text-white/80">
               <p className="flex items-start">
                 <span className="text-ryvie-blue mr-3 text-2xl">•</span>
                 <span>Vos données personnelles sont dispersées chez les géants du cloud, qui les exploitent à des fins commerciales</span>
@@ -60,7 +62,7 @@ const WhyRyvie = () => {
 
         {/* Solution */}
         <div className="max-w-4xl mx-auto mb-16">
-          <div className="bg-gradient-to-br from-ryvie-blue to-blue-600 rounded-3xl shadow-xl p-8 lg:p-12 text-white">
+          <div className="bg-gradient-to-br from-ryvie-electric to-ryvie-blue rounded-3xl shadow-xl p-8 lg:p-12 text-white">
             <h3 className="text-2xl font-bold mb-6">Notre solution</h3>
             <div className="space-y-4 text-lg">
               <p className="flex items-start">
@@ -88,13 +90,13 @@ const WhyRyvie = () => {
           {stats.map((stat, index) => (
             <div 
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center"
+              className="glass-effect rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center"
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-ryvie-blue to-blue-600 rounded-2xl mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-ryvie-electric to-ryvie-blue rounded-2xl mb-4">
                 <stat.icon className="w-8 h-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-gradient mb-2">{stat.value}</div>
-              <div className="text-ryvie-gray">{stat.label}</div>
+              <div className="text-white/75">{stat.label}</div>
             </div>
           ))}
         </div>

@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/images/logo.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/images/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ryvie - Votre cloud personnel open source</title>
-    <meta name="description" content="Ryvie est votre cloud personnel open source. Stockez photos, vidéos et documents, tout en y accédant partout dans le monde." />
+    <title>Ryvie - Votre cloud personnel chez vous</title>
+    <meta name="description" content="Ryvie est votre cloud personnel. Stockez photos, vidéos et documents chez vous, tout en y accédant partout dans le monde. Vos données restent les vôtres." />
 
     <!-- Canonical -->
     <link rel="canonical" href="https://ryvie.fr/" />
@@ -13,15 +14,88 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ryvie.fr/" />
-    <meta property="og:title" content="Ryvie - Votre cloud personnel open source" />
-    <meta property="og:description" content="Ryvie est votre cloud personnel open source, simple et écologique, pour garder vos données tout en y accédant partout." />
-    <meta property="og:image" content="https://ryvie.fr/images/capturePC.png" />
+    <meta property="og:title" content="Ryvie - Votre cloud personnel chez vous" />
+    <meta property="og:description" content="Ryvie est votre cloud personnel, simple et écologique, pour garder vos données chez vous tout en y accédant partout." />
+    <meta property="og:image" content="https://ryvie.fr/images/logo.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:site_name" content="Ryvie" />
 
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Ryvie - Votre cloud personnel open source" />
-    <meta name="twitter:description" content="Ryvie est votre cloud personnel open source, simple et écologique, pour garder vos données tout en y accédant partout." />
-    <meta name="twitter:image" content="https://ryvie.fr/images/capturePC.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ryvie - Votre cloud personnel chez vous" />
+    <meta name="twitter:description" content="Ryvie est votre cloud personnel, simple et écologique, pour garder vos données chez vous tout en y accédant partout." />
+    <meta name="twitter:image" content="https://ryvie.fr/images/logo.png" />
+
+    <!-- Schema.org JSON-LD for Organization + Sitelinks -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Ryvie",
+      "url": "https://ryvie.fr",
+      "logo": "https://ryvie.fr/images/logo.png",
+      "description": "Ryvie est votre cloud personnel. Stockez photos, vidéos et documents chez vous, tout en y accédant partout dans le monde.",
+      "sameAs": [
+        "https://www.linkedin.com/company/ryvie",
+        "https://github.com/ryvie"
+      ]
+    }
+    </script>
+
+    <!-- Schema.org JSON-LD for WebSite with SearchAction -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Ryvie",
+      "url": "https://ryvie.fr",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://ryvie.fr/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- Schema.org JSON-LD for SiteNavigationElement (Sitelinks) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "SiteNavigationElement",
+          "position": 1,
+          "name": "Nos Offres",
+          "description": "Découvrez nos gammes de cloud personnel : Économie Circulaire et Pro",
+          "url": "https://ryvie.fr/offres"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 2,
+          "name": "À propos",
+          "description": "Découvrez l'histoire et les valeurs de Ryvie",
+          "url": "https://ryvie.fr/about"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 3,
+          "name": "FAQ",
+          "description": "Questions fréquentes sur Ryvie",
+          "url": "https://ryvie.fr/#faq"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 4,
+          "name": "Contact",
+          "description": "Contactez l'équipe Ryvie",
+          "url": "mailto:contact@ryvie.fr"
+        }
+      ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
