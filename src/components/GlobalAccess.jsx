@@ -49,7 +49,8 @@ const GlobalAccess = () => {
           </h2>
           <p className="text-xl text-white/80 leading-relaxed">
             Connectez-vous à votre Ryvie et à toutes vos applications depuis n'importe quel appareil, 
-            n'importe où dans le monde, en toute sécurité.
+            n'importe où dans le monde, en toute sécurité. Grâce à une connexion <span className="font-semibold text-white">P2P</span>, 
+            <span className="font-semibold text-white">sans intermédiaire</span>, vos échanges restent directs.
           </p>
         </div>
 

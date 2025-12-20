@@ -75,7 +75,10 @@ const Applications = () => {
         {/* rAI Special Section */}
         <div className="max-w-6xl mx-auto">
           <div className="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-1 shadow-2xl">
-            <div className="glass-effect rounded-3xl p-8 lg:p-12">
+            <div className="glass-effect rounded-3xl p-8 lg:p-12 relative overflow-hidden">
+              <div className="absolute top-6 right-6 px-4 py-1 rounded-full bg-white/10 border border-white/15 text-white text-sm font-semibold">
+                Bientôt disponible
+              </div>
               <div className="flex flex-col lg:flex-row items-start lg:items-center space-y-6 lg:space-y-0 lg:space-x-8">
                 {/* rAI Icon */}
                 <div className="flex-shrink-0">
