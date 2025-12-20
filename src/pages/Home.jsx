@@ -8,6 +8,7 @@ import GlobalAccess from '../components/GlobalAccess';
 import Security from '../components/Security';
 import WhyRyvie from '../components/WhyRyvie';
 import UseCases from '../components/UseCases';
+import Partners from '../components/Partners';
 import FAQ from '../components/FAQ';
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
       <Applications />
       <AppStore />
       <GlobalAccess />
+      <Partners />
       <FAQ />
     </>
   );

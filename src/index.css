@@ -32,6 +32,10 @@
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
+  
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
 }
 
 @keyframes fadeIn {
@@ -60,6 +64,15 @@
   }
   50% {
     transform: translateY(-20px);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
